@@ -82,6 +82,13 @@ boolean isHit(float ax,float ay,float aw,float ah,float bx,float by,float bw,flo
   return false;
 }
 
+void shootBoolean(){
+  for(int i=0; i<5; i++){
+    shootingDetect[i] = false;
+  }  
+
+}
+
 void draw(){
    //background
    image(bg1Img,bgX,0);
@@ -204,7 +211,7 @@ void draw(){
        gameState=GAME_RUN_SLASH;
        enemyX=0;
        enemyY=random(0,255);
-
+       shootBoolean();
      }     
      
      break;
@@ -257,7 +264,8 @@ void draw(){
      if (enemyX-4*spacingX > width){
        gameState = GAME_RUN_DIAMOND;
        enemyX=0;
-       enemyY=random(80,335);        
+       enemyY=random(80,335); 
+       shootBoolean();
      }
 
 
@@ -335,7 +343,8 @@ void draw(){
        shootingDetect = new boolean [5];
        shootNbr=0;
        shootX = new float [5];
-       shootY = new float [5]; 
+       shootY = new float [5];
+       shootBoolean();
 
      }     
 
@@ -370,6 +379,7 @@ void draw(){
             shootX = new float [5];
             shootY = new float [5]; 
             scoreNbr=0;
+            shootBoolean();
            } 
          }
        break;
